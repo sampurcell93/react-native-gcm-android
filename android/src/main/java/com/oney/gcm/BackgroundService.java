@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.facebook.react.LifecycleState;
+import com.facebook.react.common.LifecycleState;
 import com.facebook.react.ReactInstanceManager;
 
 import java.lang.reflect.Field;
@@ -44,8 +44,8 @@ public class BackgroundService extends Service {
     public void onDestroy() {
         Log.d(TAG, "onDestroy");
         super.onDestroy();
-        mReactInstanceManager.onPause();
-        mReactInstanceManager.onDestroy();
+        mReactInstanceManager.onHostPause();
+        mReactInstanceManager.onHostDestroy();
         mReactInstanceManager = null;
     }
 
